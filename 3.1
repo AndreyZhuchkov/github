@@ -1,0 +1,45 @@
+#include <iostream>
+#include <string>
+using namespace std;
+class CppStudio
+{
+  private:
+string author,name;
+int page, chapter;
+public:
+void messege ()
+{
+cout << "Книга открыта на: \n";
+}
+void setdate(int date_page, int date_chapter ,string date_author,string date_name )
+{
+page = date_page;
+chapter = date_chapter;
+author = date_author;
+name = date_name;
+}
+void getDate(void)
+{
+cout<< "странице " << page <<"\n"<< "главе " << chapter << "\n" << "Автор: "<< author <<"\n" <<"Название книги: " << name <<"\n"<< endl;
+}
+};
+int main(int argc, char* argv[])
+{
+setlocale (LC_ALL, "Russia");
+int page, chapter;
+string author,name;
+cout << "Введите страницу и главу:\n";
+cout << "страница: ";
+cin >> page ;
+cout << "глава: ";
+cin >> chapter ;
+cout << "введите имя автора ";
+cin >> author;
+cout << "введите название книги ";
+cin >> name;
+CppStudio objCppstudio;
+objCppstudio.messege();
+objCppstudio.setdate(page, chapter,author ,name);
+objCppstudio.getDate();
+return 0;
+}
