@@ -1,0 +1,67 @@
+#include <iostream>
+#include <string>
+using namespace std;
+struct Book
+{
+	string title;
+	int num_of_chapters;
+	int num_of_pages;
+};
+class Library
+{
+private:
+	Book *book;
+	int num_of_books;
+public:
+	Library(int lib_num_of_books)
+	{
+		num_of_books = lib_num_of_books;
+		book = new Book[num_of_books];
+	}
+	~Library()
+	{
+		delete [] book;
+	}
+	void setInf(int count)
+	{
+		cout << "Введите название книги " << count + 1 << ": ";
+		cin >> book[count].title;
+		cout << "Введите количество глав " << book[count].title << ": ";
+		cin >> book[count].num_of_chapters;
+		cout << "Введите количество страниц " << book[count].title << ": ";
+		cin >> book[count].num_of_pages;
+	}
+	void getInf(void)
+	{
+		cout << "Моя библиотека: " << endl;
+		for (int i = 0; i < num_of_books; i++)
+		{
+			cout << "Книга: " << i + 1 << endl;
+			cout << "Название: " << book[i].title << endl;
+			cout << "Количество глав: " << book[i].num_of_chapters << endl;
+			cout << "Номер страницы: " << book[i].num_of_pages << endl;
+		}
+	}
+};
+int main()
+{
+  setlocale(LC_ALL, "Russian");
+	int num_of_books;
+	cout << "Введите количество книг: ";
+	cin >> num_of_books;
+	Library My_library(num_of_books);
+	for (int i = 0; i < num_of_books; i++)
+	{
+		My_library.setInf(i);
+	}
+	My_library.getInf();
+	system("pause");
+	return 0;
+} (int i = 0; i < num_of_books; i++)
+	{
+		My_library.setInf(i);
+	}
+	My_library.getInf();
+	system("pause");
+	return 0;
+}
