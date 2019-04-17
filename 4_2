@@ -1,0 +1,32 @@
+#include <iostream>
+using namespace std;
+//Меняем местами значения в четных и нечетных ячейках
+int* change(int *mass , int size){
+    int c;
+    for (int i=1;i<=11;i=i+2) {
+          c=mass[i-1];
+          mass[i-1]=mass[i];
+          mass[i]=c;
+    }
+    return mass;
+}
+// основная программа: создание массива
+// заполнение его с клавиатуры
+//вывод элементов и их уничтожение
+int main() {
+  int* mas = new int[12];
+  cout<<"Введите элементы массива:"<<endl;
+  for (int i=0;i<12;i++)
+    {
+    cout<<"A["<<i+1<<"]=";
+    cin>>mas[i];
+    }
+  change(mas,12);
+  cout<<"Вывод на экран элементов массива:"<<endl;
+  for (int i=0;i<12;i++)
+    {
+    cout<<"A["<<i+1<<"]="<<mas[i]<<endl;
+    }
+  delete [] mas;
+  return 0;
+}
