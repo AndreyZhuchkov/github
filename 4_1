@@ -1,0 +1,59 @@
+#include <iostream>
+using namespace std;
+//создание массива размером razm
+double* makemas( int size)
+  {
+  double* mas = new double[size];
+  return mas;
+  }
+//заполнение  массива с клавиатуры
+double* fillmas(double *mas,int size)
+{
+  cout<<"Введите элементы массива:"<<endl;
+  for (int i=0;i<size;i++)
+    {
+    cout<<"A["<<i+1<<"]=";
+    cin>>mas[i];
+    }
+    return mas;
+}
+//вывод массива на экран
+void prmas(double *mas,int size)
+{
+  cout<<"Элементы массива:"<<endl;
+  for (int i=0;i<size;i++)
+    {
+    cout<<"A["<<i+1<<"]="<<mas[i]<<endl;
+
+    }
+}
+//уничножение массива
+void delmas(double *mas,int size)
+{
+  delete [] mas;
+     }
+//основная программа : работа с массивом
+// программа предлагает сделать новый массив или выйти из программы
+int main() {
+  int size;
+  bool fl;
+  fl=true;
+  char q;
+  while (fl)
+  {
+  cout<<"Введите размер массива: ";
+  cin>>size;
+  double *fmas;
+  fmas=makemas( size);
+  fillmas(fmas,size);
+  prmas(fmas,size);
+  delmas(fmas,size);
+   cout<<"Введите 1, если вы хотите создать массив.\n";
+   cout<<"Введите 0 ,чтобы закончить.\n" ;
+   cin>>q;
+   if (q=='1') { fl=true; }
+   else { fl=false; }
+   }
+   cout<<"Программа завершена.\n" ;
+  return 0;
+}
